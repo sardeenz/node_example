@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leaflet Demo</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="MarkerCluster.Default.css">
+    <style>
+    	#map {
+    		height: 100%;
+    		width: 100%;
+    	}
+    	html, body {
+    		width: 100%;
+    		height: 100%;
+    		margin: 0;
+    		padding: 0;
+    	}
+    </style>
+
+  </head>
+  <body>
+  	<div id="map"></div>
+  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="leaflet.markercluster.js"></script>
+    <script type="text/javascript">
+        var map = L.map('map').setView([35.7769, -78.6436],8);
+        L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png').addTo(map);
+        var markers = new L.MarkerClusterGroup({spiderfyOnMapZoom: true}).addTo(map);
+        $.getJSON('poi_wgs.geojson', function(json, textStatus) {
+            L.geoJson(json, {
+                onEachFeature: function (feature, layer) {
+					//if (feature.properties.CATEGORY== 'Cultural')
+					//{
+                    var popup = "<p><strong>"+feature.properties.NAME+"</strong></p>"+
+                    "<p>Type: "+feature.properties.ICON+"</p>";
+                    layer.bindPopup(popup);
+                    markers.addLayer(layer);
+					//}
+                }
+            });
+        });
+    </script>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "leaflet",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trianglecodeforamerica/TODD_leaflet_demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trianglecodeforamerica/TODD_leaflet_demo/issues"
+  },
+  "homepage": "https://github.com/trianglecodeforamerica/TODD_leaflet_demo#readme"
+}

@@ -27,7 +27,7 @@
     <script type="text/javascript">
         var map = L.map('map').setView([35.7769, -78.6436],15);
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-        $.getJSON('poi_wgs.geojson', function(json, textStatus) {
+        $.getJSON('../poi.geojson', function(json, textStatus) {
             L.geoJson(json, {
                 onEachFeature: function (feature, layer) {
                     var popup = "<p><strong>"+feature.properties.NAME+"</strong></p>"+
